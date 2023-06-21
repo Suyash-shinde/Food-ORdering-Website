@@ -1,0 +1,47 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\sandeep\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add react-icons --save
+
+PATH: 
+  C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\WINDOWS\System32\OpenSSH\;C:\WINDOWS\IsmFiles;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\nodejs;C:\Users\sandeep\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\sandeep\AppData\Local\Programs\Python\Python311\;C:\Users\sandeep\AppData\Local\Microsoft\WindowsApps;C:\Users\sandeep\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\sandeep\Downloads\flutter\bin;D:\EGON\Software\Anki;C:\Users\sandeep\AppData\Local\GitHubDesktop\bin;C:\Users\sandeep\AppData\Roaming\npm;C:\Program Files\nodejs;
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.16.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'D:\EGON\PBL Project\dfos\node_modules\@next\swc-win32-x64-msvc\next-swc.win32-x64-msvc.node'
+
+npm manifest: 
+  {
+    "name": "dfos",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start",
+      "lint": "next lint"
+    },
+    "dependencies": {
+      "autoprefixer": "10.4.14",
+      "eslint": "8.42.0",
+      "eslint-config-next": "13.4.5",
+      "next": "13.4.5",
+      "postcss": "8.4.24",
+      "react": "18.2.0",
+      "react-dom": "18.2.0",
+      "react-icons": "^4.9.0",
+      "tailwindcss": "3.3.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
