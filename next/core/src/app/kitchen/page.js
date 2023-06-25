@@ -3,7 +3,8 @@ import React from 'react'
 
 const kitchen = () => {
 	const OrderItems = [{table_number: 1, dish: 'Tomato Soup',modifications:'None',quantity:'2' },
-	{table_number: 14, dish: 'Tomato Soup',modifications:'yes',quantity:'2' }
+	{table_number: 14, dish: 'Tomato Soup',modifications:'yes',quantity:'2' },
+
 ];
 
   return (
