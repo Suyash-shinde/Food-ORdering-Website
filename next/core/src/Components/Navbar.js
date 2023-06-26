@@ -25,8 +25,8 @@ const Navbar = () => {
       </div>
       <div className="nav mx-16 py-3.5 px-6">
         <ul className='flex items-center space-x-16 font-bold'>
-          <Link href={'/'}><li>Home</li></Link>
-          <Link href={'/'}><li>Menu</li></Link>
+          <Link href={'/home'}><li>Home</li></Link>
+          <Link href={'/menu'}><li>Menu</li></Link>
         </ul>
       </div>
       <div className="pt-2 relative ml-24 text-gray-600">

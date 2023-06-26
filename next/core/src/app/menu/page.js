@@ -1,4 +1,7 @@
+'use client'
 import React from 'react';
+import Navbar from '@/src/Components/Navbar';
+
 
 const MenuPage = () => {
   const menuItems = [
@@ -44,9 +47,11 @@ const MenuPage = () => {
   ];
 
   return (
+    <>
+    <Navbar/>
+ 
     <div className="bg-rose-300">
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-2xl font-bold text-black mb-4">Menu</h1>
+      <div className="container mx-auto px-4 py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {menuItems.map(item => (
             <div key={item.id} className="bg-white rounded-lg p-4 transition-all duration-350 ease-in-out hover:shadow-xl hover:scale-95">
@@ -65,6 +70,7 @@ const MenuPage = () => {
         </div>
       </div>
     </div>
+    </>
   );
   };
 

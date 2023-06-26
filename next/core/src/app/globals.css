@@ -3,8 +3,29 @@
 @tailwind utilities;
 
 
-body{
-    overflow-x: hidden;
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #FFF1F2;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #FFE4E6;
+	border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background:#555;
 }
 
 
+
+body{
+    overflow-x: hidden;
+}
