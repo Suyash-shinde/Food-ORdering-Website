@@ -6,11 +6,69 @@ import { AiOutlinePlusSquare, AiOutlineMinusSquare, AiOutlineCloseCircle, AiOutl
 import Navbar from '@/src/Components/Navbar';
 import Footer from '@/src/Components/Footer';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
-const Home = () => {
-  return (
-    <>
-<Navbar />
+
+export default function MyApp(){
+  const[cart,setcart]=useState({})
+  const[subtotal,setsubtotal]=useState(0)
+  useEffect(()=>{
+    try{
+      if(localStorage.getItem("cart")){
+        setcart(JSON.parse(localStorage.getItem("cart")))
+      }
+    }
+    catch(error){
+      console.error(error);
+      localStorage.clear()
+    }
+  
+},[])
+  const savecart = (mycart)=>{
+    localStorage.setItem("cart",mycart)
+    let subt = 0;
+    let keys = Object.keys(mycart);
+    for(let i=0; i<Object.keys(mycart).length;i++){
+      subt+=mycart[keys[i]].price*mycart[keys[i]].qty;
+    }
+    setsubtotal(subt)
+  }
+  const addtocart = (id,qty,price,title)=>{
+    let newcart = cart;
+    if(id in cart){
+      newcart[id].qty = cart[id].qty + qty
+    }
+    else{
+      newcart[id] = {qty:1, price,title}
+    }
+    setcart(newcart)
+    savecart(newcart)
+    return
+  }
+
+  const clearcart = ()=>{
+    setcart({})
+    savecart({})
+    return 
+  }
+
+  const removefromcart = (id,qty,price,title)=>{
+    let newcart = cart;
+    if(id in cart){
+      newcart[id].qty = cart[id].qty - qty
+    }
+    if(newcart[id].qty<=0){
+      delete newcart[id]
+
+    }
+    setcart(newcart)
+    savecart(newcart)
+    return
+  }
+  return(
+  <>
+  <Navbar cart={cart} addtocart={addtocart} subtotal={subtotal} removefromcart={removefromcart} clearcart={clearcart}/>
+
       <div className='flex'>
         <div className='text-8xl grow h-screen pt-36 bg-gradient-to-t align-middle from-red-300 to-pink-400 text-red-50'>
           <p className='py-2 px-8 font-sans'>A pinch of passion</p>
@@ -159,4 +217,3 @@ const Home = () => {
   )
 }
 
-export default Home
