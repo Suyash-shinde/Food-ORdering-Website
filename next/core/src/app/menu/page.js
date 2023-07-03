@@ -43,7 +43,7 @@ const MenuPage = () => {
 
   return (
     <>
-    <Navbar cartItems={cartItems}  />
+    <Navbar  cartItems={cartItems} />
  
     <div className="bg-rose-300">
       <div className="container mx-auto px-4 py-20">

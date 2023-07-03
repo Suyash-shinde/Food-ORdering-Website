@@ -53,10 +53,10 @@ const Navbar = ({ cartItems ,  clearCartItems}) => {
         <h2 className='font-bold text-xl text-center'>My Order</h2>
         <span onClick={toggleCart} className='right-0 top-4 mx-5 fixed cursor-pointer text-xl'><AiOutlineCloseCircle /></span>
         <ol className='list-decimal font-semibold'>
-        {cartItems.map((index) => (
-    <li key={index}>
+        {cartItems?.map((item) => (
+    <li key={item.id}>
       <div className="item flex my-6">
-        <div className='w-2/3 font-semibold'>{index.name}</div>
+        <div className='w-2/3 font-semibold'>{item.name}</div>
         <div className='w-1/3 font-semibold flex items-center justify-center'>
           <button><AiOutlineMinusSquare /></button>
           
