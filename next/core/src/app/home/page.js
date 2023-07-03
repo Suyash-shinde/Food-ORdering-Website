@@ -3,8 +3,8 @@ import Link from 'next/link';
 import React, { useRef } from 'react';
 import { BiFoodMenu } from 'react-icons/bi';
 import { AiOutlinePlusSquare, AiOutlineMinusSquare, AiOutlineCloseCircle, AiOutlinePlus } from 'react-icons/ai';
-import Navbar from '@/src/Components/Navbar';
-import Footer from '@/src/Components/Footer';
+import Navbar from '@/src/app/Components/Navbar';
+import Footer from '@/src/app/Components/Footer';
 import Image from 'next/image';
 
 const Home = () => {

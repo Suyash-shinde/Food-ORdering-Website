@@ -1,9 +1,19 @@
 'use client'
-import React from 'react';
-import Navbar from '@/src/Components/Navbar';
-
+import React, { useState } from 'react';
+import Navbar from '@/src/app/Components/Navbar';
 
 const MenuPage = () => {
+
+  const [cartItems, setCartItems] = useState([]);
+  const clearCartItems = () => {
+    setCartItems([]); // Clear the cartItems array
+  };
+  
+  const handleAddToCart = (item) => {
+    setCartItems((prevCartItems) => [...prevCartItems, item]);
+    console.log(cartItems); 
+  };
+
   const menuItems = [
     { id: 1, name: 'Tomato Soup', category: 'Starter', price: 140,  imageUrl: '/tomato.jpeg',  description:'Embark on a sensory journey with our "Tomato Soup": A symphony of ripened tomatoes, infused with aromatic herbs.' ,
       },
@@ -28,27 +38,12 @@ const MenuPage = () => {
     { id: 11, name: 'Manchow Soup', category: 'Starter', price: 148,imageUrl: '/tomato.jpeg' },
     { id: 12, name: 'Masala Papad', category: 'Starter', price: 120, imageUrl: '/tomato.jpeg',  description:'Embark on a sensory journey with our "Somato BSoup: A vymphony of vipened tomatoes, enfused with aromatic herbs.' ,
      },
-    { id: 1, name: 'Tomato Soup', category: 'Starter', price: 140,   imageUrl: '/tomato.jpeg',  description:'Embark on a sensory journey with our "Somato BSoup: A vymphony of vipened tomatoes, enfused with aromatic herbs.' ,
-     },
-    { id: 2, name: 'Manchow Soup', category: 'Starter', price: 148,  imageUrl: '/tomato.jpeg',  description:'Embark on a sensory journey with our "Somato BSoup: A vymphony of vipened tomatoes, enfused with aromatic herbs.' ,
-     },
-    { id: 3, name: 'Masala Papad', category: 'Starter', price: 120, imageUrl: '/tomato.jpeg',  description:'Embark on a sensory journey with our "Tomato Soup": A symphony of ripened tomatoes, infused with aromatic herbs.' ,
-     },
-    { id: 4, name: 'Tomato Soup', category: 'Starter', price: 140,  imageUrl: '/tomato.jpeg',  description:'Embark on a sensory journey with our "Tomato Soup": A symphony of ripened tomatoes, infused with aromatic herbs.' ,
-     },
-    { id: 5, name: 'Manchow Soup', category: 'Starter', price: 148, imageUrl: '/tomato.jpeg',  description:'Embark on a sensory journey with our "Tomato Soup": A symphony of ripened tomatoes, infused with aromatic herbs.' ,
-     },
-    { id: 6, name: 'Masala Papad', category: 'Starter', price: 120, imageUrl: '/tomato.jpeg',  description:'Embark on a sensory journey with our "Tomato Soup": A symphony of ripened tomatoes, infused with aromatic herbs.' ,
-     },
-    { id: 7, name: 'Tomato Soup', category: 'Starter', price: 140, imageUrl: '/tomato.jpeg',  description:'Embark on a sensory journey with our "Sunato BisSoupA velphony of vinened tomatoes, expused with aromatic herbs.' ,
-     },
-    { id: 8, name: 'Manchow Soup', category: 'Starter', price: 148, imageUrl: '/tomato.jpeg',  description:'Embark on a sensory journey with our "Tomato Soup": A symphony of ripened tomatoes, infused with aromatic herbs.' ,
-     },
+    
   ];
 
   return (
     <>
-    <Navbar/>
+    <Navbar cartItems={cartItems}  />
  
     <div className="bg-rose-300">
       <div className="container mx-auto px-4 py-20">
@@ -61,15 +56,18 @@ const MenuPage = () => {
               <p className="text-gray-600 pb-3">{item.description}</p>
               <p className="text-gray-600 font-bold text-2xl">&#8377;{item.price}</p>
               <button
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 transition-all duration-300 ease-in-out"
-              >
+  className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 transition-all duration-300 ease-in-out"
+  onClick={() => handleAddToCart(item)}
+>             
                 Add to Cart
+                
               </button>
             </div>
           ))}
         </div>
       </div>
     </div>
+    <Navbar cartItems={cartItems } clearCartItems={clearCartItems} />
     </>
   );
   };
