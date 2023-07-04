@@ -1,17 +1,38 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState,useEffect  } from 'react';
 import Navbar from '@/src/app/Components/Navbar';
+import Kitchen from '../kitchen/page';
 
 const MenuPage = () => {
 
   const [cartItems, setCartItems] = useState([]);
   const clearCartItems = () => {
-    setCartItems([]); // Clear the cartItems array
+    
+    <Kitchen cartItems={cartItems} />
+    setCartItems([]);
+    localStorage.removeItem('cartItems');
+    
   };
+  useEffect(() => {
+    const storedItems = localStorage.getItem('cartItems');
+    debugger; 
+    if (storedItems) {
+      try {
+        const parsedItems = JSON.parse(storedItems);
+        setCartItems(parsedItems);
+      } catch (error) {
+        console.error('Error parsing stored items:', error);
+        // Handle the error, e.g., clear the invalid stored items
+        //localStorage.removeItem('cartItems');
+      }
+    }
+  }, []);
   
   const handleAddToCart = (item) => {
     setCartItems((prevCartItems) => [...prevCartItems, item]);
-    console.log(cartItems); 
+    console.log("saving localstorage");
+    localStorage.setItem('cartItems', JSON.stringify([...cartItems, item]));
+
   };
 
   const menuItems = [
@@ -67,7 +88,10 @@ const MenuPage = () => {
         </div>
       </div>
     </div>
+    <Kitchen  cartItems={cartItems} />
     <Navbar cartItems={cartItems } clearCartItems={clearCartItems} />
+    
+
     </>
   );
   };
