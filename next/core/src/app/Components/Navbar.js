@@ -7,17 +7,45 @@ import { AiOutlinePlusSquare, AiOutlineMinusSquare, AiOutlineCloseCircle, AiOutl
 import Image from 'next/image';
 import MenuPage from '@/src/app/menu/page';
 
+import { useRouter } from 'next/navigation';
 
-const Navbar = ({ cartItems ,  clearCartItems}) => {
+const Navbar = ({ cartItems ,  clearCartItems,decrease , increase}) => {
   
+  const router = useRouter()
 
+  const orderSummaryTotal = [
+    { Sr: 1, Total: 5000, CGST: 50, SGST: 50, Billing: 5100, }
+  ];
+ /* useEffect(() => {
+    const storedItems = localStorage.getItem('cartItems');
+    //debugger; 
+    if (storedItems) {
+      try {
+        const parsedItems = JSON.parse(storedItems);
+        clearCartItems(parsedItems);
+      } catch (error) {
+        console.error('Error parsing stored items:', error);
+        // Handle the error, e.g., clear the invalid stored items
+        //localStorage.removeItem('cartItems');
+      }
+    }
+  }, []);*/
 
-  const printfunc  = () => {
+  const deitems = (item) => {
+   decrease(item);
+  };
+  const inc = (item) => {
+    increase(item);
+   };
+  const printfunc  = (item) => {
     
-    clearCartItems();
+    clearCartItems(item);
     
   } 
-  
+  const printfuncs  = () => {
+    
+<link href={'/order'}></link>    
+  } 
   const toggleCart = () => {
     if (ref.current.classList.contains('translate-x-full')) {
       ref.current.classList.remove('translate-x-full')
@@ -40,6 +68,8 @@ const Navbar = ({ cartItems ,  clearCartItems}) => {
         <ul className='flex items-center space-x-16 font-bold'>
           <Link href={'/home'}><li>Home</li></Link>
           <Link href={'/menu'}><li>Menu</li></Link>
+          <Link href={'/order'}><li>Order Summary</li></Link>
+
         </ul>
       </div>
       <div className="pt-2 relative ml-24 text-gray-600">
@@ -58,16 +88,16 @@ const Navbar = ({ cartItems ,  clearCartItems}) => {
       <div className="item flex my-6">
         <div className='w-2/3 font-semibold'>{item.name}</div>
         <div className='w-1/3 font-semibold flex items-center justify-center'>
-          <button><AiOutlineMinusSquare /></button>
-          
-          <button><AiOutlinePlusSquare /></button>
+          <button onClick={() => deitems(item)}><AiOutlineMinusSquare /></button>
+          <div className='center font-semibold'>{item.quantity}</div>
+          <button onClick={() => inc(item)}><AiOutlinePlusSquare /></button>
         </div>
       </div>
     </li>
   ))}
         </ol>
         <button className='flex mx-auto mt-2 text-white bg-green-400 border-0 py-2 px-8 focus:outline-none hover:bg-amber-500 rounded text-lg' onClick={() => printfunc()}>Place Order</button>
-        <button className='flex mx-auto mt-2 text-white bg-red-600 border-0 py-2 px-8 focus:outline-none hover:bg-amber-500 rounded text-lg' onClick={() => printfunc()}>Proceed to Payment</button>
+        <button className='flex mx-auto mt-2 text-white bg-red-600 border-0 py-2 px-8 focus:outline-none hover:bg-amber-500 rounded text-lg' onClick={() => router.push('/order')}>Proceed to Payment</button>
       </div>
       
 
