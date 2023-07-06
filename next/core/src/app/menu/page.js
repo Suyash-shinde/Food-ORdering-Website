@@ -218,11 +218,11 @@ const MenuPage = () => {
     <>
     <Navbar  />
  
-    <div className="bg-rose-300">
+    <div className="bg-rose-200">
       <div className="container mx-auto px-4 py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {menuItems.map(item => (
-            <div key={item.id} className="bg-white rounded-lg p-4 transition-all duration-350 ease-in-out hover:shadow-xl hover:scale-95">
+            <div key={item.id} className="bg-white rounded-xl p-4 transition-all  hover:shadow-2xl">
               <p className="text-gray-500   mb-1 pb-1 text-2xl ">{item.category}</p>
               <img src={item.imageUrl} alt={item.name} className="w-full h-40 object-cover mb-4 rounded-md" />
               <h2 className="text-xl text-gray-600 font-bold mb-2">{item.name}</h2>

@@ -77,8 +77,8 @@ const OrderSummary = ({cartItems}) => {
               <tr key={item.id}>
                 <td className='w-screen text-center font-semibold'>{item.name}</td>
                 <td className='w-screen'>{item.quantity}</td>
-                <td className='w-1/12 pr-6 text-right'>{item.price}</td>
-                <td className='w-1/12 pr-6 text-right'>{item.price*item.quantity}</td>
+                <td className='w-screen text-right'>{item.price}</td>
+                <td className='w-screen text-right'>{item.price*item.quantity}</td>
               </tr>))}
           </tbody>
         </table>
