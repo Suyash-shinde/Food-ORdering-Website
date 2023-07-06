@@ -1,16 +1,19 @@
 'use client'
 import Link from 'next/link';
-import React, { useRef } from 'react';
+import React, { useEffect, useState } from "react";
 import { BiFoodMenu } from 'react-icons/bi';
 import { AiOutlinePlusSquare, AiOutlineMinusSquare, AiOutlineCloseCircle, AiOutlinePlus } from 'react-icons/ai';
-import Navbar from '@/src/Components/Navbar';
-import Footer from '@/src/Components/Footer';
+import Navbar from '@/src/app/Components/Navbar';
+import Footer from '@/src/app/Components/Footer';
 import Image from 'next/image';
+import MenuPage from '@/src/app/menu/page';
+
 
 const Home = () => {
+  
   return (
     <>
-<Navbar />
+<Navbar   />
       <div className='flex'>
         <div className='text-8xl grow h-screen pt-36 bg-gradient-to-t align-middle from-red-300 to-pink-400 text-red-50'>
           <p className='py-2 px-8 font-sans'>A pinch of passion</p>
@@ -154,7 +157,6 @@ const Home = () => {
           </div>
         </div></div>
             <Footer className="text-pink-200 body-font" />
-
      </>
   )
 }
