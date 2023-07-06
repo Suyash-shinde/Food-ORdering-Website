@@ -90,7 +90,7 @@ const Kitchen = ({ cartItems }) => {
                 className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded"
                 onClick={() => handleDelete(item.id)}
               >
-                Delete
+                Done
               </button>
             </td>
           </tr>
